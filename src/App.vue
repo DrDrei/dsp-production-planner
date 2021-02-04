@@ -1,11 +1,13 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <h1>Production Calculator</h1>
-      </div>
+    <v-app-bar app
+               color="primary"
+               dark>
+      <v-toolbar-title>
+        DSP Production Calc
+      </v-toolbar-title>
 
-      <v-spacer></v-spacer>
+      <v-spacer />
     </v-app-bar>
 
     <v-main>
@@ -22,10 +24,7 @@ export default {
 
   components: {
     HelloWorld
-  },
+  }
 
-  data: () => ({
-    //
-  })
 }
 </script>
