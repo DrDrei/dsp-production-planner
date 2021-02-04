@@ -44,7 +44,7 @@
                     v-for="item in rawResources"
                     :key="item.name">
                     <td>{{ item.name }}</td>
-                    <td>{{ item.amount }}</td>
+                    <td>{{ item.amount.toFixed(2) }}</td>
                   </tr>
                 </tbody>
               </template>
