@@ -12,19 +12,22 @@
 
     <v-main>
       <HelloWorld />
+      <recipe />
     </v-main>
   </v-app>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld'
+import Recipe from './components/Recipe'
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld
-  }
+    HelloWorld,
+    Recipe,
+  },
 
 }
 </script>

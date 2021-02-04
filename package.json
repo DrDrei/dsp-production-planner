@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "uuid": "^8.3.2",
     "vue": "^2.6.11",
     "vuetify": "^2.4.0"
   },
@@ -44,17 +45,30 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "vue/max-attributes-per-line": ["error", {
-        "singleline": 3,
-        "multiline": {
-          "max": 1,
-          "allowFirstLine": true
+      "no-unused-vars": "warn",
+      "no-debugger": "warn",
+      "no-console": "warn",
+      "vue/max-attributes-per-line": [
+        "error",
+        {
+          "singleline": 3,
+          "multiline": {
+            "max": 1,
+            "allowFirstLine": true
+          }
         }
-      }],
-      "vue/html-closing-bracket-newline": ["error", {
-        "singleline": "never",
-        "multiline": "never"
-      }]
+      ],
+      "vue/html-closing-bracket-newline": [
+        "error",
+        {
+          "singleline": "never",
+          "multiline": "never"
+        }
+      ],
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ]
     }
   },
   "browserslist": [
