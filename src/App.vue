@@ -11,23 +11,34 @@
     </v-app-bar>
 
     <v-main>
-      <HelloWorld />
-      <recipe />
+      <ProductionDemand class="mt-3" />
+      <v-btn color="green"
+             dark
+             fixed
+             bottom
+             right
+             fab
+             @click="addPlanet">
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-import Recipe from './components/Recipe'
+import ProductionDemand from './components/ProductionDemand'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
-    Recipe,
+    ProductionDemand,
   },
-
+  methods: {
+    ...mapActions({
+      addPlanet: 'planets/add',
+    }),
+  },
 }
 </script>

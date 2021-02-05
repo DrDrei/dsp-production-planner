@@ -193,7 +193,7 @@ export default class {
     if (!node) {
       obj.root = {
         name,
-        key: uuidv4(),
+        id: uuidv4(),
         amount: units,
         raw: {},
         children: [],
