@@ -32,7 +32,7 @@
         <b>{{ item.name + ': ' }}</b> {{ item.amount }}
       </template>
       <template v-slot:append="{ item }">
-        <v-btn v-if="item.id" icon @click="removeProduction(item.id)">
+        <v-btn v-if="item.id" icon @click="removeProduction(item)">
           <v-icon>mdi-minus</v-icon>
         </v-btn>
       </template>
@@ -89,8 +89,8 @@ export default {
     focusInput () {
       this.$refs.valueInput.focus()
     },
-    removeProduction (id) {
-      this.removeProd(id)
+    removeProduction (tree) {
+      this.removeProd({ id: this.planetId, tree })
     },
   },
 }

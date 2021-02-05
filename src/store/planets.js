@@ -35,6 +35,11 @@ export default {
       const planet = state.planets.find(x => x.id === id)
       planet.trees.push(tree)
     },
+    REMOVE_PRODUCTION ({ planets }, { id, tree }) {
+      var trees = planets.find(x => x.id === id).trees
+      var index = trees.findIndex(x => x.id === tree.id)
+      trees.splice(index, 1)
+    },
   },
   actions: {
     add ({ commit }) {
@@ -48,6 +53,9 @@ export default {
         id,
         tree,
       })
+    },
+    removeProduction ({ commit }, payload) {
+      commit('REMOVE_PRODUCTION', payload)
     },
   },
 }
