@@ -14,9 +14,9 @@ export default {
         for (const tree of trees) {
           for (const [key, value] of Object.entries(tree.raw)) {
             if (key in raw) {
-              raw[key] += value.toFixed(2)
+              raw[key] += parseFloat(value)
             } else {
-              raw[key] = value.toFixed(2)
+              raw[key] = parseFloat(value)
             }
           }
         }

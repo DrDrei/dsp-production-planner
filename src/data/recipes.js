@@ -181,9 +181,9 @@ export default class {
     // if recipe not found, then it's a raw resource... unless something really went wrong....
     if (!recipe) {
       if (name in obj.root.raw) {
-        obj.root.raw[name] += units
+        obj.root.raw[name] += parseFloat(units)
       } else {
-        obj.root.raw[name] = units
+        obj.root.raw[name] = parseFloat(units)
       }
 
       return

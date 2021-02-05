@@ -17,7 +17,7 @@
       </v-col>
       <v-col cols="4">
         <v-text-field ref="valueInput"
-                      v-model="units"
+                      v-model.number="units"
                       outlined
                       dense
                       clearable
@@ -37,14 +37,6 @@
         </v-btn>
       </template>
     </v-treeview>
-    <v-btn color="blue"
-           dark
-           fixed
-           bottom
-           right
-           fab>
-      <v-icon>mdi-plus</v-icon>
-    </v-btn>
   </v-card>
 </template>
 

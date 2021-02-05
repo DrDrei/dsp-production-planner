@@ -23,7 +23,7 @@
               <tbody>
                 <tr v-for="each in resources" :key="each.resource">
                   <td>{{ each.resource }}</td>
-                  <td>{{ each.amount }}</td>
+                  <td>{{ each.amount.toFixed(2) }}</td>
                 </tr>
               </tbody>
             </template>
