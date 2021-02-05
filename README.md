@@ -10,3 +10,4 @@ Goal of this project is to provide a UI to help plan out your production lines o
 - Cache user data on the frontend
 - Add recipe icons
 - Add production building calculation per recipe
+- Add belt amount per recipe
