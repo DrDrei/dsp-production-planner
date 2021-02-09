@@ -43,29 +43,10 @@
            small
            absolute
            top
-           right>
+           right
+           @click="open({planetId})">
       <v-icon>mdi-plus</v-icon>
     </v-btn>
-    <v-layout row justify-center mx-3>
-      <v-col cols="8">
-        <v-autocomplete v-model="recipeName"
-                        outlined
-                        dense
-                        :items="recipes"
-                        @change="focusInput" />
-      </v-col>
-      <v-col cols="4">
-        <v-text-field ref="valueInput"
-                      v-model.number="units"
-                      outlined
-                      dense
-                      clearable
-                      type="number"
-                      :append-outer-icon="'mdi-plus'"
-                      @click:append-outer="addProduction"
-                      @keypress.enter="addProduction" />
-      </v-col>
-    </v-layout>
     <v-treeview :items="trees" dense selection-type="independent">
       <template v-slot:label="{ item }">
         <b>{{ item.name + ': ' }}</b> {{ item.amount }}
@@ -92,8 +73,6 @@ export default {
     },
   },
   data: () => ({
-    recipeName: '',
-    units: 0,
     planet: {
       editable: false,
       name: 'Planet',
@@ -105,7 +84,7 @@ export default {
       getTrees: 'planets/getTrees',
     }),
     recipes () {
-      return (new Recipe()).list()
+      return Recipe.list
     },
     trees () {
       return this.getTrees(this.planetId)
@@ -116,13 +95,11 @@ export default {
       addProd: 'planets/addProduction',
       removeProd: 'planets/removeProduction',
       removePlanet: 'planets/remove',
+      open: 'productionMenu/open',
     }),
     editPlanet () {
       this.planet.editable = !this.planet.editable
       this.planet.backup = this.planet.name
-      this.$nextTick(function () {
-        this.$refs.planetInput.focus()
-      })
     },
     savePlanet () {
       this.planet.editable = !this.planet.editable

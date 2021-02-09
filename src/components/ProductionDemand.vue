@@ -41,6 +41,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import PlanetCard from './PlanetCard'
+
 export default {
   name: 'ProductionDemand',
   components: {

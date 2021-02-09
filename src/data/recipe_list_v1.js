@@ -1,4 +1,40 @@
 export default {
+  'Iron Ore': {
+    name: 'Iron Ore',
+    raw: true,
+    img: 'https://dsp-wiki.com/images/f/fc/Icon_Iron_Ore.png',
+    type: 'Mining Machine',
+  },
+  'Copper Ore': {
+    name: 'Copper Ore',
+    raw: true,
+    img: 'https://dsp-wiki.com/images/9/90/Icon_Copper_Ore.png',
+    type: 'Mining Machine',
+  },
+  'Stone Ore': {
+    name: 'Stone Ore',
+    raw: true,
+    img: 'https://dsp-wiki.com/images/2/2b/Icon_Stone_Ore.png',
+    type: 'Mining Machine',
+  },
+  'Coal Ore': {
+    name: 'Coal Ore',
+    raw: true,
+    img: 'https://dsp-wiki.com/images/f/f3/Icon_Coal_Ore.png',
+    type: 'Mining Machine',
+  },
+  'Silicon Ore': {
+    name: 'Silicon Ore',
+    raw: true,
+    img: 'https://dsp-wiki.com/images/d/d4/Icon_Silicon_Ore.png',
+    type: 'Mining Machine',
+  },
+  'Titanium Ore': {
+    name: 'Titanium Ore',
+    raw: true,
+    img: 'https://dsp-wiki.com/images/9/91/Icon_Titanium_Ore.png',
+    type: 'Mining Machine',
+  },
   'Iron Ingot': {
     name: 'Iron Ingot',
     amount: 1,

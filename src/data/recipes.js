@@ -8,8 +8,13 @@ export default class {
     this.totals = {}
   }
 
-  list () {
-    return Object.keys(recipes).filter(x => x !== '_version')
+  static list = Object.keys(recipes)
+
+  static table () {
+    var list = Object.values(recipes)
+    var temp = []
+    while (list.length) { temp.push(list.splice(0, 8)) }
+    return temp
   }
 
   build (units) {

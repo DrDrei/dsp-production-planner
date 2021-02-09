@@ -27,11 +27,13 @@
         <v-icon>mdi-plus</v-icon>
       </v-btn>
     </v-main>
+    <production-picker />
   </v-app>
 </template>
 
 <script>
 import ProductionDemand from './components/ProductionDemand'
+import ProductionPicker from './components/ProductionPicker'
 import { mapActions } from 'vuex'
 
 export default {
@@ -39,6 +41,7 @@ export default {
 
   components: {
     ProductionDemand,
+    ProductionPicker,
   },
   methods: {
     ...mapActions({
