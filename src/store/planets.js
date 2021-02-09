@@ -31,6 +31,10 @@ export default {
         trees: [],
       })
     },
+    REMOVE_PLANET ({ planets }, { id }) {
+      var index = planets.findIndex(x => x.id === id)
+      planets.splice(index, 1)
+    },
     ADD_PRODUCTION (state, { id, prodId, tree }) {
       const planet = state.planets.find(x => x.id === id)
       planet.trees.push(tree)
@@ -47,6 +51,9 @@ export default {
         id: uuidv4(),
         production: [],
       })
+    },
+    remove ({ commit }, payload) {
+      commit('REMOVE_PLANET', payload)
     },
     addProduction ({ commit }, { id, tree }) {
       commit('ADD_PRODUCTION', {

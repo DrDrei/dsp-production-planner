@@ -4,7 +4,7 @@
       <v-flex xs12
               sm8
               md6>
-        <v-card class="mb-3 pb-3">
+        <v-card>
           <v-card-title>
             Universe Consumption
           </v-card-title>
@@ -31,7 +31,7 @@
           <v-divider />
         </v-card>
         <div v-for="planet in planets" :key="planet.id">
-          <planet :planet-id="planet.id" class="mt-3" />
+          <planet-card :planet-id="planet.id" />
         </div>
       </v-flex>
     </v-layout>
@@ -40,11 +40,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Planet from './Planet'
+import PlanetCard from './PlanetCard'
 export default {
   name: 'ProductionDemand',
   components: {
-    Planet,
+    PlanetCard,
   },
   computed: {
     ...mapGetters({
