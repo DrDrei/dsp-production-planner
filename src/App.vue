@@ -8,6 +8,11 @@
       </v-toolbar-title>
 
       <v-spacer />
+      <v-btn icon @click="openGithub">
+        <v-icon>
+          mdi-github
+        </v-icon>
+      </v-btn>
     </v-app-bar>
 
     <v-main>
@@ -39,6 +44,9 @@ export default {
     ...mapActions({
       addPlanet: 'planets/add',
     }),
+    openGithub () {
+      window.open('https://github.com/DrDrei/dsp-production-planner', '_blank')
+    },
   },
 }
 </script>
