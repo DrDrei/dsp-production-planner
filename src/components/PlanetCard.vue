@@ -49,10 +49,10 @@
     </v-btn>
     <v-treeview :items="trees" dense selection-type="independent">
       <template v-slot:label="{ item }">
-        <b>{{ item.name + ': ' }}</b> {{ item.amount }}
+        <b>{{ item.name + ': ' }}</b> {{ item.units }}
       </template>
       <template v-slot:append="{ item }">
-        <v-btn v-if="item.id" icon @click="removeProduction(item)">
+        <v-btn v-if="item.id" icon @click="removeProduction({planetId, tree: item})">
           <v-icon>mdi-minus</v-icon>
         </v-btn>
       </template>
@@ -92,8 +92,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      addProd: 'planets/addProduction',
-      removeProd: 'planets/removeProduction',
+      removeProduction: 'planets/removeProduction',
       removePlanet: 'planets/remove',
       open: 'productionMenu/open',
     }),
@@ -110,18 +109,6 @@ export default {
     },
     deletePlanet () {
       this.removePlanet({ id: this.planetId })
-    },
-    addProduction () {
-      this.addProd({
-        id: this.planetId,
-        tree: new Recipe(this.recipeName).build(this.units).root,
-      })
-    },
-    focusInput () {
-      this.$refs.valueInput.focus()
-    },
-    removeProduction (tree) {
-      this.removeProd({ id: this.planetId, tree })
     },
   },
 }

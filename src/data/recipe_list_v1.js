@@ -40,6 +40,7 @@ export default {
     amount: 1,
     speed: 1,
     type: 'Smelter',
+    img: 'https://dsp-wiki.com/images/f/f1/Icon_Iron_Ingot.png',
     children: [
       {
         name: 'Iron Ore',
@@ -52,6 +53,7 @@ export default {
     amount: 1,
     speed: 1,
     type: 'Smelter',
+    img: 'https://dsp-wiki.com/images/e/ec/Icon_Copper_Ingot.png',
     children: [
       {
         name: 'Copper Ore',
@@ -64,6 +66,7 @@ export default {
     amount: 1,
     speed: 1,
     type: 'Smelter',
+    img: 'https://dsp-wiki.com/images/1/11/Icon_Energetic_Graphite.png',
     children: [
       {
         name: 'Coal Ore',
@@ -76,6 +79,7 @@ export default {
     amount: 1,
     speed: 1,
     type: 'Smelter',
+    img: 'https://dsp-wiki.com/images/5/5a/Icon_Stone.png',
     children: [
       {
         name: 'Stone Ore',
@@ -88,6 +92,7 @@ export default {
     amount: 1,
     speed: 2,
     type: 'Smelter',
+    img: 'https://dsp-wiki.com/images/f/f1/Icon_Titanium_Ingot.png',
     children: [
       {
         name: 'Titanium Ore',
@@ -100,6 +105,7 @@ export default {
     amount: 1,
     speed: 1.5,
     type: 'Smelter',
+    img: 'https://dsp-wiki.com/images/c/c6/Icon_Magnet.png',
     children: [
       {
         name: 'Iron Ore',
@@ -112,6 +118,7 @@ export default {
     amount: 1,
     speed: 1.5,
     type: 'Smelter',
+    img: 'https://dsp-wiki.com/images/7/76/Icon_Glass.png',
     children: [
       {
         name: 'Stone Ore',
@@ -124,6 +131,7 @@ export default {
     amount: 1,
     speed: 3,
     type: 'Smelter',
+    img: 'https://dsp-wiki.com/images/3/38/Icon_Steel.png',
     children: [
       {
         name: 'Iron Ingot',
@@ -132,10 +140,11 @@ export default {
     ],
   },
   'Circuit Board': {
-    name: 'Steel',
+    name: 'Circuit Board',
     amount: 2,
     speed: 1,
     type: 'Smelter',
+    img: 'https://dsp-wiki.com/images/2/2f/Icon_Circuit_Board.png',
     children: [
       {
         name: 'Copper Ingot',
@@ -152,6 +161,7 @@ export default {
     amount: 2,
     speed: 1,
     type: 'Assembler',
+    img: 'https://dsp-wiki.com/images/e/e5/Icon_Magnetic_Coil.png',
     children: [
       {
         name: 'Copper Ingot',
@@ -168,6 +178,7 @@ export default {
     amount: 1,
     speed: 2,
     type: 'Smelter',
+    img: 'https://dsp-wiki.com/images/8/8a/Icon_High-Purity_Silicon.png',
     children: [
       {
         name: 'Silicon Ore',
@@ -180,6 +191,7 @@ export default {
     amount: 1,
     speed: 10,
     type: 'Smelter',
+    img: 'https://dsp-wiki.com/images/8/8a/Icon_High-Purity_Silicon.png',
     children: [
       {
         name: 'Stone Ore',

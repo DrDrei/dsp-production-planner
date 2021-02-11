@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
+import Recipes from '../data/recipes'
 
 export default {
   namespaced: true,
@@ -13,11 +14,8 @@ export default {
       for (const { trees } of planets) {
         for (const tree of trees) {
           for (const [key, value] of Object.entries(tree.raw)) {
-            if (key in raw) {
-              raw[key] += parseFloat(value)
-            } else {
-              raw[key] = parseFloat(value)
-            }
+            raw[key] = raw[key] || 0
+            raw[key] += parseFloat(value)
           }
         }
       }
@@ -35,12 +33,12 @@ export default {
       var index = planets.findIndex(x => x.id === id)
       planets.splice(index, 1)
     },
-    ADD_PRODUCTION (state, { id, prodId, tree }) {
+    ADD_PRODUCTION (state, { id, tree }) {
       const planet = state.planets.find(x => x.id === id)
       planet.trees.push(tree)
     },
-    REMOVE_PRODUCTION ({ planets }, { id, tree }) {
-      var trees = planets.find(x => x.id === id).trees
+    REMOVE_PRODUCTION ({ planets }, { planetId, tree }) {
+      var trees = planets.find(x => x.id === planetId).trees
       var index = trees.findIndex(x => x.id === tree.id)
       trees.splice(index, 1)
     },
@@ -55,10 +53,10 @@ export default {
     remove ({ commit }, payload) {
       commit('REMOVE_PLANET', payload)
     },
-    addProduction ({ commit }, { id, tree }) {
+    addProduction ({ commit }, { id, name, units }) {
       commit('ADD_PRODUCTION', {
         id,
-        tree,
+        tree: Recipes.build(name, units),
       })
     },
     removeProduction ({ commit }, payload) {

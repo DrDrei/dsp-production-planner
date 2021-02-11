@@ -2,12 +2,6 @@ import { v4 as uuidv4 } from 'uuid'
 import recipes from './recipe_list_v1'
 
 export default class {
-  constructor (name) {
-    this.name = name
-    this.tree = []
-    this.totals = {}
-  }
-
   static list = Object.keys(recipes)
 
   static table () {
@@ -17,48 +11,39 @@ export default class {
     return temp
   }
 
-  build (units) {
-    const obj = {
-      root: null,
+  static build (name, units) {
+    const root = {
+      name,
+      units,
+      id: uuidv4(),
+      children: [],
+      raw: {},
     }
-    this._generate(units, obj, this.name)
-    return obj
+    this._generate(root, root.raw)
+    return root
   }
 
-  // units = items/min
-  _generate (units, obj, name, node) {
-    const recipe = recipes[name]
-    // if recipe not found, then it's a raw resource... unless something really went wrong....
-    if (!recipe) {
-      if (name in obj.root.raw) {
-        obj.root.raw[name] += parseFloat(units)
-      } else {
-        obj.root.raw[name] = parseFloat(units)
-      }
+  static _generate (node, raw) {
+    const recipe = recipes[node.name]
 
+    // if recipe not found, then it's a raw resource...
+    // unless something really went wrong....
+    if (!recipe.children) {
+      raw[node.name] = raw[node.name] || 0
+      raw[node.name] += parseFloat(node.units)
       return
     }
 
-    const { speed, amount, type, children } = recipe
-    if (!node) {
-      obj.root = {
-        name,
-        id: uuidv4(),
-        amount: units,
-        raw: {},
+    const { speed, amount, children } = recipe
+    for (const child of children) {
+      const factor = node.units / (amount * speed)
+      var newNode = {
+        name: child.name,
+        units: child.amount * factor,
         children: [],
       }
-      node = obj.root
-    } else {
-      node.children.push({
-        name,
-        amount: units,
-        children: [],
-      })
-    }
-    for (const child of children) {
-      const factor = units / (amount * speed)
-      this._generate(child.amount * factor, obj, child.name, node)
+      node.children.push(newNode)
+      this._generate(newNode, raw)
     }
   }
 }

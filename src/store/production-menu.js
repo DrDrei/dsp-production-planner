@@ -23,7 +23,6 @@ export default {
       commit('OPEN', payload)
     },
     close ({ commit }) {
-      console.log('closing...')
       commit('CLOSE')
     },
   },

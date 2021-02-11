@@ -9,7 +9,7 @@
       <v-divider class="mb-3" />
       <v-card-text>
         <div class="my-3 mx-5">
-          <v-text-field v-model.number="amount"
+          <v-text-field v-model.number="units"
                         autofocus
                         label="Production"
                         outlined
@@ -24,17 +24,10 @@
             <table>
               <tr v-for="(row, rowIndex) in recipes" :key="`row_${rowIndex}`">
                 <td v-for="(col, colIndex) in row" :key="`col_${colIndex}`">
-                  <v-tooltip left>
-                    <template v-slot:activator="{ }">
-                      <v-hover v-slot="{ hover }">
-                        <v-img :src="col.img || 'https://citybreaks.christiantour.ro/assets/img/img-placeholder-alpha-750x550.png'"
-                               width="48"
-                               height="46"
-                               :class="{'hoverCard': hover}" />
-                      </v-hover>
-                    </template>
-                    <span>Top tooltip</span>
-                  </v-tooltip>
+                  <v-img :src="col.img || 'https://citybreaks.christiantour.ro/assets/img/img-placeholder-alpha-750x550.png'"
+                         max-width="44"
+                         class="pa-3 hoverCard"
+                         @click="addProduction(col)" />
                 </td>
               </tr>
             </table>
@@ -52,7 +45,7 @@ import Recipes from '../data/recipes'
 export default {
   name: 'ProductionPicker',
   data: () => ({
-    amount: 0,
+    units: 0,
   }),
   computed: {
     ...mapGetters({
@@ -66,7 +59,16 @@ export default {
   methods: {
     ...mapActions({
       close: 'productionMenu/close',
+      add: 'planets/addProduction',
     }),
+    addProduction ({ name }) {
+      this.add({
+        id: this.planetId,
+        name,
+        units: this.units,
+      })
+      this.close()
+    },
   },
 }
 </script>
@@ -77,8 +79,9 @@ td {
   border: 1px solid black;
   border-radius: 3px;
   text-align: center;
+  padding: 2px;
 }
-.hoverCard {
+.hoverCard:hover {
   background-color: grey;
   cursor: pointer;
 }
